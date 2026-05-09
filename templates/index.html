@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IoT Dashboard</title>
+</head>
+<body>
+
+<h1>온도 이상 탐지 결과</h1>
+
+<p>총 데이터: {{ total }}</p>
+<p>이상 데이터: {{ anomaly_count }}</p>
+<p>이상 비율: {{ ratio }}%</p>
+<p>평균 온도: {{ mean_temp }}</p>
+<p>최고 온도: {{ max_temp }}</p>
+
+<h2>결과</h2>
+<p>{{ result }}</p>
+
+<h2>그래프</h2>
+<img src="/static/anomaly_graph.png" width="600">
+<h2>ML 기반 이상 탐지 그래프</h2>
+<img src="/static/ml_anomaly_graph.png" width="600">
+
+</body>
+</html>
