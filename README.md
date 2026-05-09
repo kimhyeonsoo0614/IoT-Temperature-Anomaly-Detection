@@ -89,25 +89,25 @@ Flask 웹 서버를 통해 분석 결과와 그래프를 시각화했습니다.
 
 ### 1. Python 라이브러리 설치 및 실행 경로 문제
 - 문제: 'pip install pandas matplotlib'을 입력했을 때 'pip: 용어가 cmdlet... 인식되지 않습니다'라는 오류가 발생했습니다.
-- 해결: 'python -m pip install pandas matplotlib' 방식을 먼저 시도했고, python 명령어도 인식되지 않는 상황에서는 Windows Python Launcher인 'py'를 활용해 아래 명령어로 설치했습니다.
+- 해결: 'python -m pip install pandas matplotlib' 방식을 먼저 시도했고, python 명령어도 인식되지 않는 상황에서는 Windows Python Launcher인 'py'를 활용해 다음 명령어로 설치했습니다.
 ->py -m pip install pandas matplotlib
 - 배운 점: 단순히 라이브러리를 설치하는 것뿐 아니라, python 실행경로와 windows 터미널 환경을 이해하는 것이 중요하다는 점을 배웠습니다.
 
 ### 2. matplotlib 그래프 출력 문제
 - 문제: 'analyze.py'를 실행했을 때 그래프 창이 바로 뜨지 않거나 터미널에 별다른 반응이 없는 문제가 발생했습니다.
-- 해결: 그래프를 화면에 출력하는 방식 대신 이미지 파일로 저장하는 방식으로 변경했습니다. 코드는 아래와 같습니다.
-->plt.savefig("graph.png")
+- 해결: 그래프를 화면에 출력하는 방식 대신 이미지 파일로 저장하는 방식으로 변경했습니다.
+ 코드는 다음과 같습니다. ->plt.savefig("graph.png")
 - 배운 점: 같은 코드라도 실행 환경에 따라 결과 확인 방식이 달라질 수 있으며, 화면 출력 대신 파일 저장 방식으로 전환해 문제를 해결할 수 있음을 배웠습니다.
 
 ### 3. CSV 한글 깨짐 문제
 - 문제: 'data.csv'에 한글 설명을 저장했을 때 글자가 깨져서 표시되는 문제가 발생했습니다.
-- 해결: CSV 파일을 저장할 때 'encoding="utf-8-sig" 옵션을 추가했습니다. 전체 코드는 아래와 같습니다.
+- 해결: CSV 파일을 저장할 때 'encoding="utf-8-sig" 옵션을 추가했습니다. 전체 코드는 다음과 같습니다.
 ->with open("data.csv", "w", newline="", encoding="utf-8-sig") as file:
 - 배운 점: 데이터 저장 과정에서는 값 자체 뿐 아니라 문자 인코딩 방식도 중요하며, 특히 한글 데이터를 다룰 때 인코딩 처리가 필요하다는 점을 배웠습니다.
 
 ### 4. Flask 그래프 최신화 문제
 - 문제: 새로운 데이터를 생성하고 분석 코드를 다시 실행했지만, Flask 웹 페이지에서는 이전 그래프가 계속 표시되는 문제가 발생했습니다.
-- 해결: 그래프 저장 경로를 Flask가 참조하는 'static' 폴더로 변경했습니다. 코드는 아래와 같습니다.
+- 해결: 그래프 저장 경로를 Flask가 참조하는 'static' 폴더로 변경했습니다. 코드는 다음과 같습니다.
 ->plt.savefig("static/anomaly_graph.png"), plt.savefig("static/ml_anomaly_graph.png")
 - 배운 점: Flask에서 이미지, CSS, JS 같은 정적 파일은 static 폴더에서 관리되며, 웹 페이지가 참조하는 경로와 실제 저장 경로가 일치해야 한다는 점을 배웠습니다.
 
