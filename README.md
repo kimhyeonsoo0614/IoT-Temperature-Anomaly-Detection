@@ -130,7 +130,7 @@ Flask 웹 서버를 통해 분석 결과와 그래프를 시각화했습니다.
 3. py ml_model.py
 4. py app.py
 
-## Project Structure
+## 11. Project Structure
 
 - main.py: 온도 데이터 생성
 - analyze.py: 데이터 분석 및 시각화
